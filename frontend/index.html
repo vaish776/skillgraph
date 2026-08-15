@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SkillGraph</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    SG
+                </div>
+
+                <div>
+                    <h1>SkillGraph</h1>
+                    <p>Talent Intelligence</p>
+                </div>
+
+            </div>
+
+            <nav>
+
+                <button
+                    class="nav-button active"
+                    data-page="dashboard"
+                >
+                    Dashboard
+                </button>
+
+                <button
+                    class="nav-button"
+                    data-page="people"
+                >
+                    People
+                </button>
+
+                <button
+                    class="nav-button"
+                    data-page="skills"
+                >
+                    Skills
+                </button>
+
+                <button
+                    class="nav-button"
+                    data-page="projects"
+                >
+                    Projects
+                </button>
+
+            </nav>
+
+            <div class="database-status">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    CognoDB Connected
+                </span>
+
+            </div>
+
+        </aside>
+
+
+        <main class="main">
+
+            <header class="header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        GRAPH EXPLORER
+                    </p>
+
+                    <h2 id="page-title">
+                        Dashboard
+                    </h2>
+
+                </div>
+
+            </header>
+
+
+            <div
+                id="loading"
+                class="loading hidden"
+            >
+                Loading graph data...
+            </div>
+
+
+            <div
+                id="error"
+                class="error hidden"
+            >
+
+                <h3>
+                    Something went wrong
+                </h3>
+
+                <p id="error-message"></p>
+
+            </div>
+
+
+            <div id="content">
+
+                <!-- DASHBOARD -->
+
+                <section
+                    id="dashboard-page"
+                    class="page"
+                >
+
+                    <div class="hero">
+
+                        <p class="eyebrow">
+                            CONNECTED TALENT
+                        </p>
+
+                        <h3>
+                            Discover people through their
+                            <span>relationships.</span>
+                        </h3>
+
+                        <p>
+                            Explore people, skills and projects
+                            through a graph-powered talent network.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="stats"
+                        class="stats"
+                    ></div>
+
+
+                    <h3 class="section-title">
+                        Explore SkillGraph
+                    </h3>
+
+
+                    <div class="explore-grid">
+
+                        <button
+                            class="explore-card"
+                            data-page="people"
+                        >
+
+                            <div class="card-icon">
+                                P
+                            </div>
+
+                            <h3>People</h3>
+
+                            <p>
+                                Explore professionals,
+                                their skills and projects.
+                            </p>
+
+                        </button>
+
+
+                        <button
+                            class="explore-card"
+                            data-page="skills"
+                        >
+
+                            <div class="card-icon">
+                                S
+                            </div>
+
+                            <h3>Skills</h3>
+
+                            <p>
+                                Discover skills across
+                                the talent network.
+                            </p>
+
+                        </button>
+
+
+                        <button
+                            class="explore-card"
+                            data-page="projects"
+                        >
+
+                            <div class="card-icon">
+                                P
+                            </div>
+
+                            <h3>Projects</h3>
+
+                            <p>
+                                Find people whose skills
+                                match projects.
+                            </p>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- PEOPLE -->
+
+                <section
+                    id="people-page"
+                    class="page hidden"
+                >
+
+                    <div class="page-heading">
+
+                        <p class="eyebrow">
+                            TALENT NETWORK
+                        </p>
+
+                        <h3>People</h3>
+
+                        <p>
+                            Explore professionals and
+                            their connected skills.
+                        </p>
+
+                    </div>
+
+
+                    <input
+                        id="people-search"
+                        class="search"
+                        type="text"
+                        placeholder="Search people, titles or skills..."
+                    >
+
+
+                    <div
+                        id="people-grid"
+                        class="card-grid"
+                    ></div>
+
+                </section>
+
+
+                <!-- PERSON DETAIL -->
+
+                <section
+                    id="person-page"
+                    class="page hidden"
+                >
+
+                    <button
+                        id="back-people"
+                        class="back-button"
+                    >
+                        ← Back to People
+                    </button>
+
+
+                    <div id="person-detail"></div>
+
+                </section>
+
+
+                <!-- SKILLS -->
+
+                <section
+                    id="skills-page"
+                    class="page hidden"
+                >
+
+                    <div class="page-heading">
+
+                        <p class="eyebrow">
+                            CAPABILITIES
+                        </p>
+
+                        <h3>Skills</h3>
+
+                        <p>
+                            Explore the skills connected
+                            to people in the network.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="skills-grid"
+                        class="skill-grid"
+                    ></div>
+
+                </section>
+
+
+                <!-- PROJECTS -->
+
+                <section
+                    id="projects-page"
+                    class="page hidden"
+                >
+
+                    <div class="page-heading">
+
+                        <p class="eyebrow">
+                            PROJECTS
+                        </p>
+
+                        <h3>Projects</h3>
+
+                        <p>
+                            Discover people who match
+                            project requirements.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="projects-grid"
+                        class="project-grid"
+                    ></div>
+
+                </section>
+
+
+                <!-- MATCHES -->
+
+                <section
+                    id="matches-page"
+                    class="page hidden"
+                >
+
+                    <button
+                        id="back-projects"
+                        class="back-button"
+                    >
+                        ← Back to Projects
+                    </button>
+
+
+                    <div id="matches-content"></div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
