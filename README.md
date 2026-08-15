@@ -490,12 +490,6 @@ Person Profile
 
 Project Matching
 
-Hosted Demo
-
-Hosted application:
-
-Add your deployed application URL here after deployment.
-
 Screen Recording
 
 A short screen recording demonstrates:
@@ -510,7 +504,7 @@ Viewing graph-based talent matches.
 
 Recording:
 
-Add your recording link here after recording.
+https://drive.google.com/file/d/1Us561HxRU7XjMOYo_tmIDJGRZiJJ4QEX/view?usp=sharing
 
 Future Improvements
 
